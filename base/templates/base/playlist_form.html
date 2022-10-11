@@ -1,0 +1,9 @@
+<h2>SHARE WHAT YOU LISTEN TO</h2>
+<form method="post">
+  <fieldset>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="SHARE" />
+  </fieldset>
+</form>
+<h3><a href="{% url 'home' %}">GO BACK</a></h3>

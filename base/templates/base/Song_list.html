@@ -1,0 +1,26 @@
+<p><a href="{% url 'posted_playlist' %}">{{request.user}}</a></p>
+<hr>
+
+
+<h1>RHYTM</h1>
+<table>
+    <th>PLAYLISTS</th>
+
+    {% for playlist in playlists %}
+    <tr>
+        <td><a href="{% url 'playlist_details' playlist.id %}">{{playlist.title}}</a></td>
+        <td><a href="">@{{playlist.user}}</a></td>
+    </tr>
+    {% empty %}
+        <h3>NO PLAYLISTS SHARED RIGHT NOW IN THIS GENRE</h3>
+    {% endfor %}
+
+</table>
+{% if user.is_authenticated %}
+    <h3><a href="{% url 'playlist_create' %}">SHARE A PLAYLIST</a></h3>
+{% else %}
+    <h3><a href="">SHARE A PLAYLIST</a></h3>
+{% endif %}
+
+
+
